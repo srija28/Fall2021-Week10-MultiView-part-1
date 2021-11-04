@@ -36,46 +36,17 @@
                 .range(classic_colors)
 
 
-            let formatted_data1 = d3.map(data,function (d){
-                return {
-                    x: d.culmen_length_mm,
-                    y: d.body_mass_g,
-                    r: d.flipper_length_mm,
-                    c: color(d.species)
+
+
+
+            scatter_plot(d3.map(data,function(d){
+                return{
+                x: d.flipper_length_mm,
+                y: d.body_mass_g,
+                r: d.flipper_length_mm,
+                c: color(d.species)
                 }
-            })
-
-            let formatted_data2 = d3.map(data,function (d){
-                return {
-                    x: d.flipper_length_mm,
-                    y: d.body_mass_g,
-                    r: d.flipper_length_mm,
-                    c: color(d.species)
-                }
-            })
-
-            let formatted_data3 = d3.map(data,function (d){
-                return {
-                    x: d.culmen_length_mm,
-                    y: d.culmen_depth_mm,
-                    r: d.flipper_length_mm,
-                    c: color(d.species)
-                }
-            })
-
-
-            let formatted_data4 = d3.map(data,function (d){
-                return {
-                    x: d.flipper_length_mm,
-                    y: d.culmen_depth_mm,
-                    r: d.flipper_length_mm,
-                    c: color(d.species)
-                }
-            })
-
-
-
-            scatter_plot(formatted_data1,"#figure1",
+            }),"#figure1",
                 title="Pinguines _1",
                 xLabel="culmen_length_mm",
                 yLabel="body_mass_g",
@@ -84,29 +55,45 @@
                 margin=200
             )
 
-            scatter_plot(formatted_data2,"#figure2",
+            scatter_plot(d3.map(data,function(d){
+                return{
+                x: d.culmen_length_mm,
+                y: d.body_mass_g,
+                r: d.flipper_length_mm,
+                c: color(d.species)}}),"#figure2",
                 title="Pinguines _2",
-                xLabel="flipper_length_mm",
-                yLabel="body_mass_g",
+                xLabel="culmen_length_mm",
+                yLabel="flipper_length_mm",
                 legend=species,
                 legendcolors=classic_colors,
                 margin=200
             )
 
-
-            scatter_plot(formatted_data3,"#figure3",
+            scatter_plot(d3.map(data,function(d){
+                return{
+                x: d.culmen_length_mm,
+                y: d.culmen_depth_mm,
+                r: d.flipper_length_mm,
+                c: color(d.species)
+                }}),"#figure3",
                 title="Pinguines _3",
                 xLabel="culmen_length_mm",
-                yLabel="culmen_depth_mm",
+                yLabel="culmen_depth",
                 legend=species,
                 legendcolors=classic_colors,
                 margin=200
             )
 
-            scatter_plot(formatted_data4,"#figure4",
+            scatter_plot(d3.map(data,function(d){
+                return{
+                x: d.flipper_length_mm,
+                y: d.culmen_depth_mm,
+                r: d.flipper_length_mm,
+                c: color(d.species)
+                }}),"#figure4",
                 title="Pinguines _4",
                 xLabel="flipper_length_mm",
-                yLabel="culmen_depth_mm",
+                yLabel="culmen_depth_g",
                 legend=species,
                 legendcolors=classic_colors,
                 margin=200
